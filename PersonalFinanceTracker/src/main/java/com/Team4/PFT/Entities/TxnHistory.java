@@ -1,7 +1,9 @@
-package com.Team4.PFT;
+package com.Team4.PFT.Entities;
 
 import java.time.LocalDate;
 import java.util.UUID;
+
+import com.Team4.PFT.Entities.User;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

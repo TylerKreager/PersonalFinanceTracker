@@ -1,4 +1,4 @@
-package com.Team4.PFT;
+package com.Team4.PFT.Services;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -14,6 +14,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.Team4.PFT.DTOs.TxnHistoryDTO;
+import com.Team4.PFT.Entities.TxnHistory;
+import com.Team4.PFT.Entities.User;
+import com.Team4.PFT.Repositories.LoginRepository;
+import com.Team4.PFT.Repositories.TxnHistoryRepository;
 
 @Service
 public class TxnHistoryService {
@@ -57,15 +61,7 @@ public class TxnHistoryService {
 			}
 		}
 	}
-	
-	
-	//Getting all txn data for user and returning it in list.
-	public List<TxnHistoryDTO> getAllHistory(Long userId) throws IOException {
-		List<TxnHistory> txns = txnHistoryRepository.findByUser_userId(userId);
-				
-		return txns.stream()
-				.map(TxnHistoryDTO::new)
-				.collect(Collectors.toList());
-		
-	}
 }
+	
+	
+

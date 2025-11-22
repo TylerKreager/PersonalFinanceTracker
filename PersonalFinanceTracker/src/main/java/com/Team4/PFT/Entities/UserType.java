@@ -1,4 +1,4 @@
-package com.Team4.PFT;
+package com.Team4.PFT.Entities;
 
 
 //This is used to set guidelines to what is added to the DB column for role.

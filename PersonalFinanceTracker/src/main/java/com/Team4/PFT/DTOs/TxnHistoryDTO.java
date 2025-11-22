@@ -3,7 +3,7 @@ package com.Team4.PFT.DTOs;
 import java.time.LocalDate;
 import java.util.UUID;
 
-import com.Team4.PFT.TxnHistory;
+import com.Team4.PFT.Entities.TxnHistory;
 
 public class TxnHistoryDTO {
 	private UUID txnId;

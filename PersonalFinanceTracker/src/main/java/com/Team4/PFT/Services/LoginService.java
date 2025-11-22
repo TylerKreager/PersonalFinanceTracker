@@ -1,10 +1,13 @@
-package com.Team4.PFT;
+package com.Team4.PFT.Services;
 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import com.Team4.PFT.Entities.User;
+import com.Team4.PFT.Repositories.LoginRepository;
 
 @Service
 public class LoginService {

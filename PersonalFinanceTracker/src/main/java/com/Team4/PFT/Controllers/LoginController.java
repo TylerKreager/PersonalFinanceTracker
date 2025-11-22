@@ -1,10 +1,15 @@
-package com.Team4.PFT;
+package com.Team4.PFT.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import com.Team4.PFT.DTOs.UpdateProfileRequest;
+import com.Team4.PFT.Services.LoginService;
+import com.Team4.PFT.Entities.LoginRequest;
+import com.Team4.PFT.Entities.User;
 
 @RestController
 @RequestMapping("api/auth")

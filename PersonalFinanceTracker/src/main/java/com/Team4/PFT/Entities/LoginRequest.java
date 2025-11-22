@@ -1,4 +1,4 @@
-package com.Team4.PFT;
+package com.Team4.PFT.Entities;
 
 public class LoginRequest {
 	private String email;

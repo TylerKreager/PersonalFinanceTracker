@@ -1,4 +1,4 @@
-package com.Team4.PFT;
+package com.Team4.PFT.Controllers;
 
 import java.util.List;
 
@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.Team4.PFT.Services.TxnHistoryService;
 import com.Team4.PFT.DTOs.TxnHistoryDTO;
 
 @RestController

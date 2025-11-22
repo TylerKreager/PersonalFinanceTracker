@@ -1,4 +1,4 @@
-package com.Team4.PFT;
+package com.Team4.PFT.Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
