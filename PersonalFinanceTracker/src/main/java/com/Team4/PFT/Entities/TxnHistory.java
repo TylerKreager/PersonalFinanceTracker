@@ -20,7 +20,6 @@ import jakarta.validation.constraints.NotNull;
 public class TxnHistory {
 
 	@Id
-	@Column(columnDefinition = "CHAR(36)")
 	private UUID txnId;
 	
 	@ManyToOne
