@@ -39,10 +39,14 @@ public class User {
     private String city;
     private String postalCode;
     private String phone;
+    private double budget;
 
-    public User() {}
-
+	public User() {}
+	
     // Getters & Setters
+	public double getBudget() {return budget;}
+
+	public void setBudget(double budget) {this.budget = budget;}
     public Long getUserId() { return userId; }
     public void setUserId(Long userId) { this.userId = userId; }
 
