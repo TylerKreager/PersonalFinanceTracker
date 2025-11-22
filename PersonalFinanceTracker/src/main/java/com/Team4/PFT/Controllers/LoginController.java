@@ -10,9 +10,11 @@ import com.Team4.PFT.DTOs.UpdateProfileRequest;
 import com.Team4.PFT.Services.LoginService;
 import com.Team4.PFT.Entities.LoginRequest;
 import com.Team4.PFT.Entities.User;
+import com.Team4.PFT.Entities.UserType;
 
 @RestController
 @RequestMapping("api/auth")
+
 public class LoginController {
 	
 	@Autowired
@@ -22,8 +24,14 @@ public class LoginController {
 	//Registering User
 	@PostMapping(value = "/register", consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(value = HttpStatus.OK)
-	void registerUser(@RequestBody User user) throws Exception {
-		loginService.registerUser(user);
+	public ResponseEntity<?> registerUser(@RequestBody User user)  {
+		try {
+			User regUser = loginService.registerUser(user);
+			return ResponseEntity.status(HttpStatus.CREATED).body(regUser);
+		} catch (IllegalArgumentException e) {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+		}
+		
 	}
 	
 	//Login user
@@ -36,6 +44,12 @@ public class LoginController {
 		} catch (IllegalArgumentException e) {
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
 		}
+	}
+	
+	//Gathers the user types to populate dropdown
+	@GetMapping("/user-types")
+	public ResponseEntity<UserType[]> getUserTypes(){
+		return ResponseEntity.ok(UserType.values());
 	}
 	
 }
