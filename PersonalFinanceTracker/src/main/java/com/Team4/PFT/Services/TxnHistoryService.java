@@ -53,13 +53,35 @@ public class TxnHistoryService {
 				txn.setSubDescription(fields[3].toString().replace("\"", ""));
 				txn.setTxnType(fields[4].toString().replace("\"", ""));
 				txn.setTxnAmount(Double.parseDouble(fields[5].trim().replace("\"", "")));
-				txn.setBalance(Double.parseDouble(fields[5].trim().replace("\"", "")));
+				txn.setBalance(Double.parseDouble(fields[6].trim().replace("\"", "")));
 				
 				txnHistoryRepository.save(txn);
 				
 				
 			}
 		}
+	}
+	
+	public List<TxnHistory> searchBetweenDates(LocalDate startDate, LocalDate endDate, Long userId) {
+		User user = loginRepository.findById(userId)
+				.orElseThrow(() -> new IllegalArgumentException("User not found by ID"));
+		
+		return txnHistoryRepository.findByUserAndTxnDateBetween(user, startDate, endDate);
+	}
+	
+	public double monthsTotal(Long userId) {
+		User user = loginRepository.findById(userId)
+				.orElseThrow(() -> new IllegalArgumentException("User not found by ID"));
+		
+		LocalDate startDate = LocalDate.now().withDayOfMonth(1);
+		LocalDate endDate = LocalDate.now().withDayOfMonth(LocalDate.now().lengthOfMonth());
+		
+		List<TxnHistory> txns = txnHistoryRepository.findByUserAndTxnDateBetween(user, startDate, endDate);
+		
+		return txns.stream()
+				.mapToDouble(TxnHistory::getTxnAmount)
+				.filter(z -> z < 0)
+				.sum();
 	}
 }
 	
