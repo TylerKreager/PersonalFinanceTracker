@@ -23,8 +23,10 @@ public class UpdateProfileRequest {
     private String city;
     private String postalCode;
     private String phone;
+    private double budget;
 
-    // --- Getters and Setters ---
+ 
+	// --- Getters and Setters ---
     public String getFirstName() { return firstName; }
     public void setFirstName(String firstName) { this.firstName = firstName; }
 
@@ -48,4 +50,7 @@ public class UpdateProfileRequest {
 
     public String getPhone() { return phone; }
     public void setPhone(String phone) { this.phone = phone; }
+    
+    public double getBudget() {return budget;}
+	public void setBudget(double budget) {this.budget = budget;}
 }

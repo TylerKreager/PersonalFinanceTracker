@@ -44,6 +44,7 @@ public class UserService {
         user.setCity(request.getCity());
         user.setPostalCode(request.getPostalCode());
         user.setPhone(request.getPhone());
+        user.setBudget(request.getBudget());
 
         // Example role-based behavior
         // You could set defaults or flags used in dashboard based on userType
