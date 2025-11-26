@@ -71,5 +71,22 @@ public class UserService {
 
         return loginRepository.save(user);
     }
+    
+    public Double getUserBudget(Long userId) {
+    	User user = loginRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+    	
+    	Double currentBudget = user.getBudget();
+    	
+    	return currentBudget;
+    }
+    
+    public User updateBudget(Long userId, double newBudget) {
+    	User user = loginRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+    	
+    	user.setBudget(newBudget);
+    	return loginRepository.save(user);
+    }
 
 }

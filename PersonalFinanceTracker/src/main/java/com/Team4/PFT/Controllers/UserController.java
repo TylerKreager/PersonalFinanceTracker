@@ -23,5 +23,24 @@ public class UserController {
         User updatedUser = userService.updateProfile(id, request);
         return ResponseEntity.ok(updatedUser);
     }
+    
+    @GetMapping("/budget")
+    public ResponseEntity<Double> getBudget(@RequestParam("userId") Long userId) {
+    	Double currentBudget = userService.getUserBudget(userId);
+    	
+    	return ResponseEntity.ok(currentBudget);
+    }
+    
+    @PutMapping("/setBudget")
+    public ResponseEntity<User> updateUserBudget(@RequestParam Long userId, 
+    		@RequestBody double newBudget)
+    {
+    	User updatedUser = userService.updateBudget(userId, newBudget);
+    	return ResponseEntity.ok(updatedUser);
+    	
+    }
+   
+    
+    
 }
 
